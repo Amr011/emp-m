@@ -1,7 +1,7 @@
 <?php
 
 
-include "config.php";
+include "../config.php";
 
 // if the 'id' variable is set in the URL, we hnow that we need to edit a record
 if (isset($_GET['id'])) {
@@ -20,7 +20,7 @@ if (isset($_GET['id'])) {
 <head>
     <title>View Page</title>
     <!-- to make it looking good in using bootstrap -->
-    <?php require('partials/utils.php') ?>
+    <?php require('../partials/utils.php') ?>
 
 </head>
 
@@ -32,7 +32,7 @@ if (isset($_GET['id'])) {
         echo "Error:" . $sql . "<br>" . $conn->error;
     } ?>
 
-    <div><a href="emp-index.php">HOME</a></div>
+    <div><a href="index.php">HOME</a></div>
 </body>
 
 </html>

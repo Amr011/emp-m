@@ -1,6 +1,6 @@
 <?php
 
-include "config.php";
+include "../config.php";
 
 // if the form's update button is clicked, we need to procss the form
 if (isset($_POST['update'])) {
@@ -53,7 +53,7 @@ if (isset($_GET['id'])) {
 <head>
     <title>View Page</title>
     <!-- to make it looking good in using bootstrap -->
-    <?php require('partials/utils.php') ?>
+    <?php require('../partials/utils.php') ?>
 
 </head>
 
@@ -83,7 +83,7 @@ if (isset($_GET['id'])) {
 
             <br><br>
             <button type="submit" class="btn btn-primary" name="update">Update</button>
-            <div><a href="emp-index.php">HOME</a></div>
+            <div><a href="index.php">HOME</a></div>
 
         </fieldset>
     </form>

@@ -1,5 +1,5 @@
 <?php
-include "config.php";
+include "../config.php";
 
 if (isset($_POST['submit'])) {
 
@@ -32,7 +32,7 @@ if (isset($_POST['submit'])) {
 <head>
     <title>View Page</title>
     <!-- to make it looking good in using bootstrap -->
-    <?php require('partials/utils.php') ?>
+    <?php require('../partials/utils.php') ?>
 
 </head>
 
@@ -58,7 +58,7 @@ if (isset($_POST['submit'])) {
             <br><br>
 
             <button type="submit" name="submit">submit</button>
-            <div><a href="emp-index.php">HOME</a></div>
+            <div><a href="index.php">HOME</a></div>
         </fieldset>
     </form>
 

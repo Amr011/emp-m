@@ -1,5 +1,5 @@
 <?php
-include "config.php";
+include "../config.php";
 
 //write the query to get data from users table
 
@@ -17,14 +17,14 @@ $result = $conn->query($sql);
 <head>
     <title>View Page</title>
     <!-- to make it looking good in using bootstrap -->
-    <?php require('partials/utils.php') ?>
+    <?php require('../partials/utils.php') ?>
 
 </head>
 
 <body class="container">
     <div class="container">
         <h1>Employee</h1>
-        <a href="emp-create.php" class="btn btn-primary">create</a>
+        <a href="create.php" class="btn btn-primary">create</a>
         <table class="table">
             <thead>
                 <tr>
@@ -51,8 +51,8 @@ $result = $conn->query($sql);
                     <td><?php echo $row['education']; ?></td>
                     <td><?php echo $row['phone']; ?></td>
                     <td><?php echo $row['special']; ?></td>
-                    <td><a class="btn btn-info" href="emp-update.php?id=<?php echo $row['id']; ?>">Edit</a>&nbsp;<a
-                            class="btn btn-danger" href="emp-delete.php?id=<?php echo $row['id']; ?>">Delete</a></td>
+                    <td><a class="btn btn-info" href="update.php?id=<?php echo $row['id']; ?>">Edit</a>&nbsp;<a
+                            class="btn btn-danger" href="delete.php?id=<?php echo $row['id']; ?>">Delete</a></td>
 
 
 
