@@ -18,7 +18,7 @@ if (isset($_POST['update'])) {
     $result = $conn->query($sql);
 
     if ($result == TRUE) {
-        echo "Record updated successfully.";
+        echo "<script> alert('تم تعديل السجل بنجاح')</script>";
     } else {
         echo "Error:" . $sql . "<br>" . $conn->error;
     }
@@ -46,48 +46,71 @@ if (isset($_GET['id'])) {
             $special = $row['special'];
         }
 
-?>
 
-<html>
+
+?>
+<html dir="rtl">
 
 <head>
-    <title>View Page</title>
+    <title>قسم التشغيل</title>
     <!-- to make it looking good in using bootstrap -->
     <?php require('../partials/utils.php') ?>
 
 </head>
 
 <body class="container">
+    <?php require('../partials/header.php') ?>
+    <?php require('../partials/hero.php') ?>
+
+    <div class="card p-4 mt-4" style="max-width: 500px; margin-left: auto; margin-right: auto;">
+        <form action="" method="POST">
+            <fieldset>
+                <legend class="fw-bold">تعديل البيانات الشخصية:</legend>
+                الاسم الثلاثي:<br>
+                <input type="text" name="name" class="form-control" value="<?php echo $name; ?>">
+                <input type="hidden" name="emp_id" class="form-control" value="<?php echo $id; ?>">
+                <br>
+                تاريخ الميلاد:<br>
+                <input type="date" name="birth" class="form-control" value="<?php $newDate = date("Y-m-d", strtotime($birth));
+                                                                                    echo $newDate; ?>">
+                <br>
+                التحصيل الدراسي:<br>
+                <!-- <input type="text" name="education" class="form-control" value=""> -->
+                <select class="form-select" name="education">
+                    <option selected><?php echo $education; ?></option>
+                    <option value="  دون الابتدائي">دون الابتدائي</option>
+                    <option value=" ابتدائي">ابتدائي</option>
+                    <option value=" متوسط "> متوسط</option>
+                    <option value=" اعدادي "> اعدادي</option>
+                    <option value=" دبلوم "> دبلوم</option>
+                    <option value=" بكلوريوس "> بكلوريوس</option>
+                    <option value=" ماجستير "> ماجستير</option>
+                </select>
+                <br>
+                رقم الهاتف:<br>
+                <input type="text" name="phone" class="form-control" value="<?php echo $phone; ?>">
+                <br>
+                التخصص:<br>
+                <input type="text" name="special" class="form-control" value="">
+
+                <br>
 
 
-    <form action="" method="post">
-        <fieldset>
-            <legend>Personal information Update:</legend>
-            Name:<br>
-            <input type="text" name="name" value="<?php echo $name; ?>">
-            <input type="hidden" name="emp_id" value="<?php echo $id; ?>">
-            <br>
-            Birth Date:<br>
-            <input type="date" name="birth" value="<?php $newDate = date("Y-m-d", strtotime($birth));
-                                                            echo $newDate; ?>">
-            <br>
-            Education:<br>
-            <input type="text" name="education" value="<?php echo $education; ?>">
-            <br>
-            Phone:<br>
-            <input type="text" name="phone" value="<?php echo $phone; ?>">
-            <br>
-            Special:<br>
-            <input type="text" name="special" value="<?php echo $special; ?>">
-            <br>
+                <button type="submit" class="btn btn-primary w-100" name="update">حفظ</button>
+                <br>
+                <br>
+                <div class="text-center"><a href="index.php">الصفحة الرئيسية</a></div>
 
-            <br><br>
-            <button type="submit" class="btn btn-primary" name="update">Update</button>
-            <div><a href="index.php">HOME</a></div>
-
-        </fieldset>
-    </form>
+            </fieldset>
+        </form>
+    </div>
 </body>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 </html>
 
@@ -97,7 +120,7 @@ if (isset($_GET['id'])) {
 <?php
     } else {
         // If the 'id' value is not valid, redirect the user back to view.php page
-        header('Location: emp-index.php');
+        header('Location: index.php');
     }
 }
 ?>
