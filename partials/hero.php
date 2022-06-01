@@ -1,7 +1,7 @@
  <div class="d-flex align-items-center justify-content-between  mb-4">
      <div class="d-flex align-items-center">
-         <a href="index.php"> <img src="../static//images/LOGO.png" alt="">
-         </a>
+         <a href="index.php">
+             <a href="index.php"><img src="https://i.ibb.co/GPSzZ5y/LOGO.jpg" alt="LOGO" border="0"></a> </a>
          <div>
              <h1 class=" fw-bold">بيانات الموظفين</h1>
              <hr>

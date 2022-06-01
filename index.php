@@ -1,5 +1,5 @@
 <?php
-include "../config.php";
+include "config.php";
 
 
 $sql = "SELECT * FROM emp ORDER BY id DESC";
@@ -26,14 +26,14 @@ if (isset($_GET['query'])) {
 <head>
     <title>قسم التشغيل</title>
     <!-- to make it looking good in using bootstrap -->
-    <?php require('../partials/utils.php') ?>
+    <?php require('partials/utils.php') ?>
 
 </head>
 
 <body>
     <div class="container">
-        <?php require('../partials/header.php') ?>
-        <?php require('../partials/hero.php') ?>
+        <?php require('partials/header.php') ?>
+        <?php require('partials/hero.php') ?>
 
 
 

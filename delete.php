@@ -1,7 +1,7 @@
 <?php
 
 
-include "../config.php";
+include "config.php";
 
 // if the 'id' variable is set in the URL, we hnow that we need to edit a record
 if (isset($_GET['id'])) {
@@ -20,13 +20,13 @@ if (isset($_GET['id'])) {
 <head>
     <title>قسم التشغيل</title>
     <!-- to make it looking good in using bootstrap -->
-    <?php require('../partials/utils.php') ?>
+    <?php require('partials/utils.php') ?>
 
 </head>
 
 <body class="container">
-    <?php require('../partials/header.php') ?>
-    <?php require('../partials/hero.php') ?>
+    <?php require('partials/header.php') ?>
+    <?php require('partials/hero.php') ?>
     <div class="card text-center p-4 mt-4" style="max-width: 500px; margin-left: auto; margin-right: auto;">
         <?php if ($result == TRUE) { ?>
         <p>تم حذف السجل بنجاح </p>

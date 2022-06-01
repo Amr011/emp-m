@@ -1,5 +1,5 @@
 <?php
-include "../config.php";
+include "config.php";
 
 
 if (isset($_POST['submit'])) {
@@ -33,13 +33,13 @@ if (isset($_POST['submit'])) {
 <head>
     <title>قسم التشغيل</title>
     <!-- to make it looking good in using bootstrap -->
-    <?php require('../partials/utils.php') ?>
+    <?php require('partials/utils.php') ?>
 
 </head>
 
 <body class="container">
-    <?php require('../partials/header.php') ?>
-    <?php require('../partials/hero.php') ?>
+    <?php require('partials/header.php') ?>
+    <?php require('partials/hero.php') ?>
     <div class="card   p-4 mt-4" style="max-width: 500px; margin-left: auto; margin-right: auto;">
         <form action="" method="POST">
             <fieldset>
