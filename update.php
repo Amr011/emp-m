@@ -19,22 +19,21 @@ if (isset($_POST['update'])) {
     $special = $_POST['special'];
 
     if (!$name || !$birth || !$education || !$phone || !$special) {
-        echo '<h3 class="text-center">يجب تعبئة البيانات كاملة</h3>';
-    }
-
-    // write the update query
-    $sql = "UPDATE `emp` SET `name`='$name',`birth`='$birth',`education`='$education',`phone`='$phone',`special`='$special' WHERE `id`='$emp_id'";
-
-    // execute the query
-    $result = $conn->query($sql);
-
-    if ($result == TRUE) {
-        echo "<script> alert('تم تعديل السجل بنجاح')</script>";
+        echo '<script> alert(" يجب تعبئة البيانات كاملة ")</script>';
     } else {
-        echo "Error:" . $sql . "<br>" . $conn->error;
+        // write the update query
+        $sql = "UPDATE `emp` SET `name`='$name',`birth`='$birth',`education`='$education',`phone`='$phone',`special`='$special' WHERE `id`='$emp_id'";
+
+        // execute the query
+        $result = $conn->query($sql);
+
+        if ($result == TRUE) {
+            echo "<script> alert('تم تعديل السجل بنجاح')</script>";
+        } else {
+            echo "Error:" . $sql . "<br>" . $conn->error;
+        }
     }
 }
-
 
 // if the 'id' variable is set in the URL, we know that we need to edit a record
 if (isset($_GET['id'])) {

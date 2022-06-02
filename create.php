@@ -18,21 +18,21 @@ if (isset($_POST['submit'])) {
     $special = $_POST['special'];
 
     if (!$name || !$birth || !$education || !$phone || !$special) {
-        echo '<h3 class="text-center">يجب تعبئة البيانات كاملة</h3>';
-    }
-
-    //write sql query
-    $sql = "INSERT INTO `emp`(`name`, `birth`, `education`, `phone`, `special`) VALUES ('$name','$birth','$education','$phone','$special')";
-    //execute the query
-    $result = $conn->query($sql);
-
-    if ($result == TRUE) {
-        echo "<script> alert('تمت اضافة سجل جديد بنجاح')</script>";
+        echo '<script> alert(" يجب تعبئة البيانات كاملة ")</script>';
     } else {
-        echo "Error:" . $sql . "<br>" . $conn->error;
-    }
+        //write sql query
+        $sql = "INSERT INTO `emp`(`name`, `birth`, `education`, `phone`, `special`) VALUES ('$name','$birth','$education','$phone','$special')";
+        //execute the query
+        $result = $conn->query($sql);
 
-    $conn->close();
+        if ($result == TRUE) {
+            echo "<script> alert('تمت اضافة سجل جديد بنجاح')</script>";
+        } else {
+            echo "Error:" . $sql . "<br>" . $conn->error;
+        }
+
+        $conn->close();
+    }
 }
 
 
