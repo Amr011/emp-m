@@ -2,6 +2,12 @@
 
 include "config.php";
 
+
+if (!isset($_SESSION['id'])) {
+    header('Location: login.php');
+}
+
+
 // if the form's update button is clicked, we need to procss the form
 if (isset($_POST['update'])) {
     $emp_id = $_POST['emp_id'];

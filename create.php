@@ -2,6 +2,10 @@
 include "config.php";
 
 
+if (!isset($_SESSION['id'])) {
+    header('Location: auth.php');
+}
+
 if (isset($_POST['submit'])) {
 
     $name = $_POST['name'];

@@ -3,6 +3,12 @@
 
 include "config.php";
 
+
+
+if (!isset($_SESSION['id'])) {
+    header('Location: login.php');
+}
+
 // if the 'id' variable is set in the URL, we hnow that we need to edit a record
 if (isset($_GET['id'])) {
     $emp_id = $_GET['id'];

@@ -1,6 +1,11 @@
 <?php
+session_start();
+
 include "config.php";
 
+if (!isset($_SESSION['id'])) {
+    header('Location: login.php');
+}
 
 $sql = "SELECT * FROM emp ORDER BY id DESC";
 
@@ -46,7 +51,13 @@ if (isset($_GET['query'])) {
                         placeholder="بحث عن ....">
                 </div>
             </form>
-            <a href="index.php" class="btn btn-light border"><i class="text-dark fa fa-refresh"></i></a>
+            <div>
+                <a href="index.php" class="btn btn-light border" style="margin-left: 4px;"><i style="margin-left: 4px;"
+                        class="text-dark fa fa-refresh"></i>تحديث الجدول</a>
+                <a href="logout.php" class="btn btn-light border" style="margin-right: 4px;"> <i
+                        style="margin-left: 4px;" class="text-dark  fa fa-sign-out"></i>تسجيل
+                    الخروج</a>
+            </div>
             <!-- style="position: absolute; left: 50%; transform: translateX(-50%);" -->
             <a href="create.php" class="btn btn-primary w-25"> <i class="fa fa-plus"
                     style="padding-left: 5px;"></i>انشاء سجل جديد</a>
