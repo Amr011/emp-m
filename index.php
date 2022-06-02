@@ -6,7 +6,6 @@ include "config.php";
 if (!isset($_SESSION['id'])) {
     header('Location: login.php');
 }
-echo $_SESSION['id'];
 
 $query = "SELECT * from emp ";
 
