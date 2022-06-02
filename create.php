@@ -2,9 +2,12 @@
 include "config.php";
 
 
+session_start();
+
 if (!isset($_SESSION['id'])) {
-    header('Location: auth.php');
+    header('Location: login.php');
 }
+
 
 if (isset($_POST['submit'])) {
 
@@ -14,6 +17,9 @@ if (isset($_POST['submit'])) {
     $phone = $_POST['phone'];
     $special = $_POST['special'];
 
+    if (!$name || !$birth || !$education || !$phone || !$special) {
+        echo '<h3 class="text-center">يجب تعبئة البيانات كاملة</h3>';
+    }
 
     //write sql query
     $sql = "INSERT INTO `emp`(`name`, `birth`, `education`, `phone`, `special`) VALUES ('$name','$birth','$education','$phone','$special')";

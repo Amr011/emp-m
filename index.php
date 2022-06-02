@@ -6,20 +6,35 @@ include "config.php";
 if (!isset($_SESSION['id'])) {
     header('Location: login.php');
 }
+echo $_SESSION['id'];
 
-$sql = "SELECT * FROM emp ORDER BY id DESC";
+$query = "SELECT * from emp ";
+
+$term = " ";
 
 
-$result = $conn->query($sql);
-
-if (isset($_GET['query'])) {
-    $query = $_GET['query'];
-
-    $result = $conn->query("SELECT * FROM emp
-			WHERE (`name` LIKE '%" . $query . "%')");
-} else {
-    $result = $conn->query($sql);
+if (isset($_GET['term'])) {
+    $term = $_GET['term'];
 }
+
+$result = mysqli_query($conn, $query);
+
+$results_per_page = 25;
+
+$number_of_result = mysqli_num_rows($result);
+
+$number_of_page = ceil($number_of_result / $results_per_page);
+
+if (!isset($_GET['page'])) {
+    $page = 1;
+} else {
+    $page = $_GET['page'];
+}
+$page_first_result = ($page - 1) * $results_per_page;
+//retrieve the selected results from database   
+$query = "SELECT * FROM emp WHERE (`name` LIKE '%" . $term . "%')  LIMIT " . $page_first_result . ',' . $results_per_page;
+
+$result = mysqli_query($conn, $query);
 
 
 
@@ -47,7 +62,7 @@ if (isset($_GET['query'])) {
                 <div class="d-flex  text-center">
                     <button class=" text-center  btn btn-secondary   d-flex align-items-center"
                         style="margin-left: 5px;"> <i class="fa fa-search" style="padding-left: 5px;"></i>بحث</button>
-                    <input type="text" name="query" class="form-control  border border-secondary"
+                    <input type="text" name="term" class="form-control  border border-secondary"
                         placeholder="بحث عن ....">
                 </div>
             </form>
@@ -110,6 +125,17 @@ if (isset($_GET['query'])) {
 
             </tbody>
         </table>
+        <h3 class="text-center fw-bold">
+            عدد السجلات
+            (<?php echo $number_of_result; ?>)
+        </h3>
+        <div class=" text-center">
+            <?php
+                //display the link of the pages in URL  
+                for ($page = 1; $page <= $number_of_page; $page++) {
+                    echo '<a style="margin-left:4px;" class="btn btn-light border  border-dark fw-bold"  href="index.php?page=' . $page . '">' . $page . ' </a>';
+                } ?>
+        </div>
     </div>
 
 </body>

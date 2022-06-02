@@ -6,23 +6,29 @@ session_start();
 if (isset($_SESSION["id"])) {
     header("Location: index.php");
 }
+$orginal_token = "@@33sdn&(&*2311";
 
 if (isset($_POST["submit"])) {
     $email = $_POST["email"];
     $password = $_POST["password"];
-    $duplicate = mysqli_query($conn, "SELECT * FROM user WHERE email = '$email'");
-    if (mysqli_num_rows($duplicate) > 0) {
-        echo
-        "<script> alert('اسم المستخدم محجوز بالفعل'); </script>";
-    } else {
-        if ($password) {
-            $query = "INSERT INTO user (`email`, `password`) VALUES('$email','$password')";
-            mysqli_query($conn, $query);
+    $token = $_POST["token"];
+    if ($token == $orginal_token) {
+        $duplicate = mysqli_query($conn, "SELECT * FROM user WHERE email = '$email'");
+        if (mysqli_num_rows($duplicate) > 0) {
             echo
-            "<script> alert('تمت عملية انشاء حساب مستخدم جديد بنجاح'); </script>";
+            "<script> alert('اسم المستخدم محجوز بالفعل'); </script>";
         } else {
-            echo "<script> alert('ادخال خاطئ'); </script>";
+            if ($password) {
+                $query = "INSERT INTO user (`email`, `password`) VALUES('$email','$password')";
+                mysqli_query($conn, $query);
+                echo
+                "<script> alert('تمت عملية انشاء حساب مستخدم جديد بنجاح'); </script>";
+            } else {
+                echo "<script> alert('ادخال خاطئ'); </script>";
+            }
         }
+    } else {
+        echo "<script> alert('الرمز غير صحيح'); </script>";
     }
 }
 
@@ -50,6 +56,9 @@ if (isset($_POST["submit"])) {
             <br>
             كلمة المرور:<br>
             <input type="password" class="form-control" name="password">
+            <br>
+            الرمز الفريد:<br>
+            <input type="password" class="form-control" name="token">
             <br>
             <br>
             <button type="submit" class="btn btn-primary w-100" name="submit"> تسجيل

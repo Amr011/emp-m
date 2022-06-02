@@ -2,6 +2,7 @@
 
 include "config.php";
 
+session_start();
 
 if (!isset($_SESSION['id'])) {
     header('Location: login.php');
@@ -16,6 +17,10 @@ if (isset($_POST['update'])) {
     $education = $_POST['education'];
     $phone = $_POST['phone'];
     $special = $_POST['special'];
+
+    if (!$name || !$birth || !$education || !$phone || !$special) {
+        echo '<h3 class="text-center">يجب تعبئة البيانات كاملة</h3>';
+    }
 
     // write the update query
     $sql = "UPDATE `emp` SET `name`='$name',`birth`='$birth',`education`='$education',`phone`='$phone',`special`='$special' WHERE `id`='$emp_id'";
