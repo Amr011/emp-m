@@ -3,6 +3,7 @@
 
 include "config.php";
 
+session_start();
 
 
 if (!isset($_SESSION['id'])) {
@@ -35,12 +36,13 @@ if (isset($_GET['id'])) {
     <?php require('partials/hero.php') ?>
     <div class="card text-center p-4 mt-4" style="max-width: 500px; margin-left: auto; margin-right: auto;">
         <?php if ($result == TRUE) { ?>
-        <p>تم حذف السجل بنجاح </p>
-        <p> التسلسل (<?= $emp_id  ?>)</p>
+        <h1 class="fw-bold">تم حذف السجل بنجاح </h1>
+        <br>
+        <h4> التسلسل (<?= $emp_id  ?>)</h4>
         <?php } else {
             echo "Error:" . $sql . "<br>" . $conn->error;
         } ?>
-
+        <br>
         <div><a href="index.php">الصفحة الرئيسية</a></div>
     </div>
 </body>
