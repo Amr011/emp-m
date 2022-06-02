@@ -9,7 +9,7 @@ if (!isset($_SESSION['id'])) {
 
 $query = "SELECT * from emp ";
 
-$term = " ";
+$term = "";
 
 
 if (isset($_GET['term'])) {

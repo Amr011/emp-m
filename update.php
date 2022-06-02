@@ -101,7 +101,7 @@ if (isset($_GET['id'])) {
                 <input type="text" name="phone" class="form-control" value="<?php echo $phone; ?>">
                 <br>
                 التخصص:<br>
-                <input type="text" name="special" class="form-control" value="">
+                <input type="text" name="special" class="form-control" value="<?php echo $special ?>">
 
                 <br>
 
