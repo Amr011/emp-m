@@ -57,7 +57,8 @@ if (isset($_POST["submit"])) {
             كلمة المرور:<br>
             <input type="password" class="form-control" name="password">
             <br>
-            الرمز الفريد:<br>
+            رمز الوصول:
+            :<br>
             <input type="password" class="form-control" name="token">
             <br>
             <br>
