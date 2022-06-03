@@ -129,13 +129,16 @@ $result = mysqli_query($conn, $query);
             (<?php echo $number_of_result; ?>)
         </h3>
         <div class=" text-center">
+            <?php if ($number_of_page < 1) { ?>
             <?php
-                //display the link of the pages in URL  
-                for ($page = 1; $page <= $number_of_page; $page++) {
-                    echo '<a style="margin-left:4px;" class="btn btn-light border  border-dark fw-bold"  href="index.php?page=' . $page . '">' . $page . ' </a>';
-                } ?>
+                    //display the link of the pages in URL  
+                    for ($page = 1; $page <= $number_of_page; $page++) {
+                        echo '<a style="margin-left:4px;" class="btn btn-light border  border-dark fw-bold"  href="index.php?page=' . $page . '">' . $page . ' </a>';
+                    } ?>
+            <?php } ?>
         </div>
     </div>
+    <?php require('partials/footer.php') ?>
 
 </body>
 

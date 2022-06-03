@@ -5,4 +5,14 @@ body {
     font-family: 'Almarai', sans-serif;
     /* font-family: 'Times New Roman', Times, serif; */
 }
+
+[type="date"]::-webkit-inner-spin-button {
+    display: none;
+}
+
+
+
+[type="date"]::-webkit-calendar-picker-indicator {
+    display: none;
+}
   </style>
