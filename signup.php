@@ -69,6 +69,8 @@ if (isset($_POST["submit"])) {
 
         <div class="text-center"><a href="login.php">تسجيل الدخول</a></div>
     </div>
+    <?php require('partials/footer.php') ?>
+
 </body>
 
 </html>

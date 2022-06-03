@@ -68,6 +68,8 @@ if (isset($_POST['submit'])) {
 
         <div class="text-center"><a href="signup.php">انشاء حساب مستخدم</a></div>
     </div>
+    <?php require('partials/footer.php') ?>
+
 </body>
 
 </html>

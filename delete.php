@@ -45,6 +45,8 @@ if (isset($_GET['id'])) {
         <br>
         <div><a href="index.php">الصفحة الرئيسية</a></div>
     </div>
+    <?php require('partials/footer.php') ?>
+
 </body>
 
 </html>

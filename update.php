@@ -114,6 +114,8 @@ if (isset($_GET['id'])) {
             </fieldset>
         </form>
     </div>
+    <?php require('partials/footer.php') ?>
+
 </body>
 <br>
 <br>

@@ -89,6 +89,9 @@ if (isset($_POST['submit'])) {
             </fieldset>
         </form>
     </div>
+    <?php require('partials/footer.php') ?>
+
+
     <br>
     <br>
     <br>
