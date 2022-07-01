@@ -1,7 +1,7 @@
 ## Employee Mangemnt System Using PHP
 
-## Features
+# Features
 
-# CRUD OPERATIONS
+## CRUD OPERATIONS
 
-# AUTH SYSTEM
+## AUTH SYSTEM
